@@ -1,5 +1,3 @@
-// components/Board.js
-import React from "react";
 import Square from "./Square";
 import { Grid } from "@mui/material";
 const Board = ({ squares, onClick }: any) => {

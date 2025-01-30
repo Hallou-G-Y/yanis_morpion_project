@@ -65,7 +65,7 @@ const Game = () => {
     <div>
       <Typography variant="h3">Morpion</Typography>
       <Typography variant="h4">Le Joueur 1 joue les "X" et le joueur 2 joue les "O"</Typography>
-      <Typography variant="h4">C'est au tour du joueur {isXNext ? "1" : "2"}</Typography>
+      {!winner && <Typography variant="h4">C'est au joueur {isXNext ? "1" : "2"} de jouer</Typography>}
       <Board squares={board} onClick={handleClick} />
       {winner && <Typography variant="h4">{winner}</Typography>}
       <Button disabled={isDisabled} onClick={handleClickRestart}>Restart</Button>
