@@ -9,8 +9,6 @@ const Game = () => {
   const [isDisabled, setIsDisabled] = React.useState(true);
   React.useEffect(() => {
     let newWinner = calculateWinner(board);
-    //console.log("newWinner", newWinner);
-    //console.log("type newWinner",typeof newWinner);
     if (newWinner == "X") {
         newWinner = "Le gagnant est le joueur 1";
       setWinner(newWinner);
@@ -19,9 +17,10 @@ const Game = () => {
         newWinner = "Le gagnant est le joueur 2";
       setWinner(newWinner);
       setIsDisabled(false);
-    }else{
+    }else if (board.every((square) => square)) {
+        newWinner = "Match nul";
         setWinner(newWinner);
-        setIsDisabled(false);
+        setIsDisabled(false)
     }
   }, [board]);
 
@@ -57,7 +56,6 @@ const Game = () => {
         squares[a] === squares[b] &&
         squares[a] === squares[c]
       ) {
-        console.log("squares[a]", squares[a]);
         return squares[a];
       }
     }
